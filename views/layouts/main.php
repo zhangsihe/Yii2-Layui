@@ -75,6 +75,28 @@ AppAsset::register($this);
     </div>
 </footer>
 
+<?php $this->beginBlock('mainJs') ?>
+//JavaScript代码区域
+layui.use(['form', 'layedit', 'laydate','element'], function(){
+var element = layui.element
+,form = layui.form
+,layer = layui.layer
+,layedit = layui.layedit
+,laydate = layui.laydate;
+
+laydate.render({
+'elem': '#layui_date',
+'type': 'date'
+});
+
+});
+
+
+var $window = $(window), $subnav = $(".layui-nav-child"), url;
+
+<?php $this->endBlock('mainJs') ?>
+<?php $this->registerJs($this->blocks['mainJs'], \yii\web\View::POS_END) ?>
+
 <?php $this->endBody() ?>
 </body>
 </html>
